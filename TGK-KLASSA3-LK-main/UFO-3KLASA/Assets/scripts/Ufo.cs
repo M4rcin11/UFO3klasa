@@ -18,6 +18,17 @@ public class Ufo : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        rb2d.AddForce(movement*speed);
+        rb2d.AddForce(movement * speed);
     }
+	private void OnTriggerEnter2D(Collider2D obiekt)
+	{
+		if (obiekt.gameObject.CompareTag("pickup"))
+        {
+            Destroy(obiekt.gameObject);
+        }
+	}
+
+
+
+
 }
